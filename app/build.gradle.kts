@@ -57,8 +57,10 @@ dependencies {
     implementation(libs.androidx.material3)
 
     // KSP
-    implementation(libs.androidx.room.runtime)
     ksp(libs.androidx.room.compiler)
+
+    // Room Database
+    implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
 
     // Hilt-Dependency Injection
