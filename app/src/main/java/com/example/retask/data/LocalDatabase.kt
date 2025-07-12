@@ -6,5 +6,7 @@ import com.example.retask.model.Note
 
 @Database(entities = [Note::class], version = 1)
 abstract class LocalDatabase : RoomDatabase() {
+
     abstract fun noteDao(): NoteDao
+
 }
