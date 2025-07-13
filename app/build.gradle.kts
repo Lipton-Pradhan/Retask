@@ -6,6 +6,9 @@ plugins {
     // KSP
     id("com.google.devtools.ksp")
 
+    // Kapt
+    id("org.jetbrains.kotlin.kapt")
+
     // Hilt-Dependency Injection
     id("com.google.dagger.hilt.android")
 }
@@ -59,6 +62,9 @@ dependencies {
     // KSP
     ksp(libs.androidx.room.compiler)
 
+    // Kapt
+    kapt(libs.androidx.room.compiler.v250)
+
     // Room Database
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
@@ -74,4 +80,14 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // Hilt Robolectric
+    testImplementation(libs.hilt.android.testing)
+    // ...Kotlin.
+    kaptTest(libs.hilt.android.compiler)
+
+    // Hilt Instrumented Tests
+    androidTestImplementation(libs.hilt.android.testing)
+    // ...with Kotlin.
+    kaptAndroidTest(libs.hilt.android.compiler)
 }
