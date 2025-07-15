@@ -7,7 +7,7 @@ plugins {
     id("com.google.devtools.ksp")
 
     // Kapt
-    id("org.jetbrains.kotlin.kapt")
+//    id("org.jetbrains.kotlin.kapt")
 
     // Hilt-Dependency Injection
     id("com.google.dagger.hilt.android")
@@ -24,7 +24,8 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+//        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.example.retask.CustomTestRunner"
     }
 
     buildTypes {
@@ -63,7 +64,7 @@ dependencies {
     ksp(libs.androidx.room.compiler)
 
     // Kapt
-    kapt(libs.androidx.room.compiler.v250)
+//    kapt(libs.androidx.room.compiler.v250)
 
     // Room Database
     implementation(libs.androidx.room.runtime)
@@ -84,10 +85,10 @@ dependencies {
     // Hilt Robolectric
     testImplementation(libs.hilt.android.testing)
     // ...Kotlin.
-    kaptTest(libs.hilt.android.compiler)
+//    kaptTest(libs.hilt.android.compiler)
 
     // Hilt Instrumented Tests
     androidTestImplementation(libs.hilt.android.testing)
     // ...with Kotlin.
-    kaptAndroidTest(libs.hilt.android.compiler)
+//    kaptAndroidTest(libs.hilt.android.compiler)
 }

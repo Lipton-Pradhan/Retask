@@ -1,6 +1,6 @@
 package com.example.retask.data
 
-import com.example.retask.model.Note
+import com.example.retask.data.model.Note
 import jakarta.inject.Inject
 import kotlinx.coroutines.flow.Flow
 
