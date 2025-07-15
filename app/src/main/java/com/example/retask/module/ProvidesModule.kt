@@ -1,8 +1,9 @@
-package com.example.retask.data
+package com.example.retask.module
 
 import android.content.Context
 import androidx.room.Room
-import dagger.Binds
+import com.example.retask.data.LocalDatabase
+import com.example.retask.data.NoteDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -12,7 +13,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class AppModule {
+object ProvidesModule {
 
     @Singleton
     @Provides
@@ -33,11 +34,5 @@ abstract class AppModule {
     ): NoteDao {
         return localDatabase.noteDao()
     }
-
-    @Singleton
-    @Binds
-    abstract fun bindNoteRepository(
-        noteRepositoryImpl: NoteRepositoryImpl
-    ): NoteRepository
 
 }
