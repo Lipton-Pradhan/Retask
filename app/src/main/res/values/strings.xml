@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Retask</string>
+    <string name="home_destination">Home</string>
+    <string name="home_description">See all your notes</string>
+    <string name="new_destination">New</string>
+    <string name="new_description">Create new</string>
+    <string name="clear_selection">Clear selection</string>
+    <string name="delete_notes">Delete notes</string>
 </resources>

@@ -5,22 +5,21 @@ import jakarta.inject.Inject
 import kotlinx.coroutines.flow.Flow
 
 interface NoteRepository {
+    fun getAllNotes(): Flow<List<Note>>
 
-    suspend fun getAllNotes(): Flow<List<Note>>
-
-    suspend fun insert(note: Note)
+    suspend fun insert(note: Note): Long
 
     suspend fun update(note: Note)
 
     suspend fun delete(note: Note)
 
+    suspend fun delete(noteList: List<Note>)
 }
 
 class NoteRepositoryImpl @Inject constructor(
     private val noteDao: NoteDao
 ) : NoteRepository {
-
-    override suspend fun getAllNotes() = noteDao.getAllNotes()
+    override fun getAllNotes() = noteDao.getAllNotes()
 
     override suspend fun insert(note: Note) = noteDao.insert(note)
 
@@ -28,4 +27,5 @@ class NoteRepositoryImpl @Inject constructor(
 
     override suspend fun delete(note: Note) = noteDao.delete(note)
 
+    override suspend fun delete(noteList: List<Note>) = noteDao.delete(noteList)
 }

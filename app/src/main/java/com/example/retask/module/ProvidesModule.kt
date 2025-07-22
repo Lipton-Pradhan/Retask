@@ -14,7 +14,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object ProvidesModule {
-
     @Singleton
     @Provides
     fun provideLocalDatabase(
@@ -34,5 +33,4 @@ object ProvidesModule {
     ): NoteDao {
         return localDatabase.noteDao()
     }
-
 }
