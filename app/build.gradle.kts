@@ -11,6 +11,12 @@ plugins {
 
     // Hilt-Dependency Injection
     id("com.google.dagger.hilt.android")
+
+    // Kotlin JSON Serialization
+    kotlin("plugin.serialization") version "2.0.21"
+
+    // Parcelable
+    id("kotlin-parcelize")
 }
 
 android {
@@ -43,6 +49,7 @@ android {
     }
     kotlinOptions {
         jvmTarget = "11"
+        freeCompilerArgs = listOf("-XXLanguage:+PropertyParamAnnotationDefaultTargetMode")
     }
     buildFeatures {
         compose = true
@@ -73,6 +80,21 @@ dependencies {
     // Hilt-Dependency Injection
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
+
+    // Jetpack Compose Navigation
+    implementation(libs.androidx.navigation.compose)
+
+    // Kotlin JSON Serialization
+    implementation(libs.kotlinx.serialization.json)
+
+    // Navigation Suite Scaffold
+    implementation(libs.androidx.material3.adaptive.navigation.suite)
+
+    // Adaptive Navigation
+    implementation(libs.adaptive)
+    implementation(libs.adaptive.layout)
+    implementation(libs.adaptive.navigation)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -91,4 +113,7 @@ dependencies {
     androidTestImplementation(libs.hilt.android.testing)
     // ...with Kotlin.
 //    kaptAndroidTest(libs.hilt.android.compiler)
+
+    // Jetpack Compose Navigation
+    androidTestImplementation(libs.androidx.navigation.testing)
 }
