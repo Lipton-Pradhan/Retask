@@ -36,19 +36,19 @@ class CreateViewModel @Inject constructor(
             newNoteId = 0L
             deleteNoteJob?.cancel()
             deleteNoteJob = viewModelScope.launch {
-                delay(200L)
+                delay(500L)
                 deleteNote(updatedNote)
             }
         } else if (newNoteId == 0L) {
             addNewNoteJob?.cancel()
             addNewNoteJob = viewModelScope.launch {
-                delay(200L)
+                delay(500L)
                 addNewNote(updatedNote)
             }
         } else if (newNoteId > 0L) {
             updateNoteJob?.cancel()
             updateNoteJob = viewModelScope.launch {
-                delay(200L)
+                delay(500L)
                 updateNote(updatedNote.copy(id = newNoteId))
             }
         }
